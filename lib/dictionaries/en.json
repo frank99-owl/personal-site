@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Frank — Personal Site",
+    "description": "Personal website of Frank: projects, writings, and ideas."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "toggleLanguage": "Chinese"
+  },
+  "hero": {
+    "eyebrow": "Hi, I'm Frank",
+    "title": "Building small, thoughtful software.",
+    "subtitle": "Exploring AI and vibe coding — turning small ideas into working software.",
+    "ctaPrimary": "See my work",
+    "ctaSecondary": "About me"
+  },
+  "featured": {
+    "eyebrow": "Selected work",
+    "title": "A few things I've built",
+    "viewAll": "View all projects →"
+  },
+  "aboutPreview": {
+    "eyebrow": "About",
+    "title": "Curious by default.",
+    "body": "This space is a work in progress. I'll fill it in soon with a bit about who I am, what I'm learning, and what I'm thinking about lately.",
+    "readMore": "Read more →"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A little about me",
+    "intro": "Graduated from the University of Melbourne, majoring in Computing and Software Systems. These days I spend my time exploring AI, vibe coding, and the craft of building small, useful software.",
+    "skillsTitle": "Things I enjoy",
+    "skills": ["💪 Fitness", "⚫ Go", "🎾 Tennis"],
+    "experienceTitle": "A rough timeline"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A growing collection of things I've shipped, prototyped, or tinkered with.",
+    "empty": "More projects coming soon."
+  },
+  "footer": {
+    "tagline": "Built with care in 2026.",
+    "sections": {
+      "connect": "Connect",
+      "navigate": "Navigate"
+    },
+    "copied": "Copied"
+  }
+}

@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Anthropic-inspired warm palette */
+  --color-cream: #faf9f0;
+  --color-cream-dim: #f4f2e4;
+  --color-ink: #131314;
+  --color-ink-soft: #2a2a2b;
+  --color-orange: #d97757;
+  --color-orange-dim: #c26a4a;
+  --color-muted: #87867f;
+  --color-line: #e6e4d8;
+
+  /* Semantic mapping */
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-ink);
+  --color-accent: var(--color-orange);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), var(--font-noto-sc), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets and typography */
+html,
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-cream);
+}
+
+/* Subtle grain texture overlay (optional, used by Hero) */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}

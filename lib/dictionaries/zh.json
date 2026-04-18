@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Frank — 个人主页",
+    "description": "Frank 的个人网站：作品、文字与想法。"
+  },
+  "nav": {
+    "home": "首页",
+    "projects": "作品",
+    "about": "关于",
+    "toggleLanguage": "英文"
+  },
+  "hero": {
+    "eyebrow": "你好，我是 Frank",
+    "title": "做一些小而讲究的软件。",
+    "subtitle": "探索 AI 与 vibe coding——把一个个小想法，做成能真正跑起来的软件。",
+    "ctaPrimary": "看看我的作品",
+    "ctaSecondary": "关于我"
+  },
+  "featured": {
+    "eyebrow": "精选作品",
+    "title": "最近做的一些东西",
+    "viewAll": "查看全部作品 →"
+  },
+  "aboutPreview": {
+    "eyebrow": "关于",
+    "title": "天生好奇。",
+    "body": "这一块还在完善中，之后会补上——关于我是谁、最近在学什么、在想什么。",
+    "readMore": "了解更多 →"
+  },
+  "about": {
+    "eyebrow": "关于",
+    "title": "关于我",
+    "intro": "毕业于墨尔本大学 Computing and Software Systems 专业。现在把时间投在 AI、vibe coding，以及一些小而讲究的软件上。",
+    "skillsTitle": "我喜欢的",
+    "skills": ["💪 健身", "⚫ 围棋", "🎾 网球"],
+    "experienceTitle": "简单的时间线"
+  },
+  "projects": {
+    "title": "作品",
+    "subtitle": "一些做过的、在做的、想做的。持续更新。",
+    "empty": "更多作品陆续放出。"
+  },
+  "footer": {
+    "tagline": "用心打磨，2026。",
+    "sections": {
+      "connect": "联系",
+      "navigate": "导航"
+    },
+    "copied": "已复制"
+  }
+}
