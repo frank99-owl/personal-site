@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import createGlobe from "cobe";
 
 /**
@@ -11,6 +11,35 @@ export function Globe({ size = 600 }: { size?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+
+  const setCursor = useCallback((cursor: string) => {
+    const canvas = canvasRef.current;
+    if (canvas) canvas.style.cursor = cursor;
+  }, []);
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      pointerInteracting.current =
+        e.clientX - pointerInteractionMovement.current;
+      setCursor("grabbing");
+    },
+    [setCursor]
+  );
+
+  const handlePointerUp = useCallback(() => {
+    pointerInteracting.current = null;
+    setCursor("grab");
+  }, [setCursor]);
+
+  const handleMove = useCallback(
+    (clientX: number) => {
+      if (pointerInteracting.current !== null) {
+        const delta = clientX - pointerInteracting.current;
+        pointerInteractionMovement.current = delta / 200;
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -78,30 +107,12 @@ export function Globe({ size = 600 }: { size?: number }) {
     >
       <canvas
         ref={canvasRef}
-        onPointerDown={(e) => {
-          pointerInteracting.current =
-            e.clientX - pointerInteractionMovement.current;
-          if (canvasRef.current) canvasRef.current.style.cursor = "grabbing";
-        }}
-        onPointerUp={() => {
-          pointerInteracting.current = null;
-          if (canvasRef.current) canvasRef.current.style.cursor = "grab";
-        }}
-        onPointerOut={() => {
-          pointerInteracting.current = null;
-          if (canvasRef.current) canvasRef.current.style.cursor = "grab";
-        }}
-        onMouseMove={(e) => {
-          if (pointerInteracting.current !== null) {
-            const delta = e.clientX - pointerInteracting.current;
-            pointerInteractionMovement.current = delta / 200;
-          }
-        }}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerOut={handlePointerUp}
+        onMouseMove={(e) => handleMove(e.clientX)}
         onTouchMove={(e) => {
-          if (pointerInteracting.current !== null && e.touches[0]) {
-            const delta = e.touches[0].clientX - pointerInteracting.current;
-            pointerInteractionMovement.current = delta / 100;
-          }
+          if (e.touches[0]) handleMove(e.touches[0].clientX);
         }}
         style={{
           width: "100%",

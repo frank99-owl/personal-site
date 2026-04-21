@@ -5,7 +5,7 @@ import {
   type Locale,
 } from "@/lib/dictionaries";
 import { projects } from "@/content/projects";
-import { ProjectGrid } from "@/components/ProjectGrid";
+import { ProjectGrid } from "@/components/sections/ProjectGrid";
 
 export default async function ProjectsPage({
   params,
@@ -31,6 +31,7 @@ export default async function ProjectsPage({
       <ProjectGrid
         projects={projects}
         lang={lang as Locale}
+        common={dict.common}
         emptyLabel={dict.projects.empty}
       />
     </section>

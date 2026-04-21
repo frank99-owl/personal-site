@@ -5,15 +5,16 @@ import { FooterNav } from "./FooterNav";
 type Props = {
   lang: Locale;
   dict: Dictionary["footer"];
+  navDict: Dictionary["nav"];
 };
 
-export function Footer({ lang, dict }: Props) {
+export function Footer({ lang, dict, navDict }: Props) {
   const base = `/${lang}`;
 
   const nav = [
-    { href: base, label: lang === "zh" ? "首页" : "Home" },
-    { href: `${base}/projects`, label: lang === "zh" ? "作品" : "Projects" },
-    { href: `${base}/about`, label: lang === "zh" ? "关于" : "About" },
+    { href: base, label: navDict.home },
+    { href: `${base}/projects`, label: navDict.projects },
+    { href: `${base}/about`, label: navDict.about },
   ];
 
   return (

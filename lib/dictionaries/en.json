@@ -40,6 +40,10 @@
     "subtitle": "A growing collection of things I've shipped, prototyped, or tinkered with.",
     "empty": "More projects coming soon."
   },
+  "common": {
+    "demo": "Demo",
+    "source": "Source"
+  },
   "footer": {
     "tagline": "Built with care in 2026.",
     "sections": {

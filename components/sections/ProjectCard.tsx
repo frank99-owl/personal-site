@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import type { Project } from "@/content/projects";
-import type { Locale } from "@/lib/dictionaries";
+import type { Locale, Dictionary } from "@/lib/dictionaries";
 
 type Props = {
   project: Project;
   lang: Locale;
+  common: Dictionary["common"];
 };
 
 function GitHubGlyph({ size = 14 }: { size?: number }) {
@@ -22,7 +23,7 @@ function GitHubGlyph({ size = 14 }: { size?: number }) {
   );
 }
 
-export function ProjectCard({ project, lang }: Props) {
+export function ProjectCard({ project, lang, common }: Props) {
   const title = project.title[lang];
   const description = project.description[lang];
 
@@ -80,7 +81,7 @@ export function ProjectCard({ project, lang }: Props) {
                 className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange transition-colors"
               >
                 <ExternalLink size={13} />
-                {lang === "zh" ? "演示" : "Demo"}
+                {common.demo}
               </a>
             )}
             {project.github && (
@@ -91,7 +92,7 @@ export function ProjectCard({ project, lang }: Props) {
                 className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange transition-colors"
               >
                 <GitHubGlyph size={13} />
-                {lang === "zh" ? "源码" : "Source"}
+                {common.source}
               </a>
             )}
           </div>

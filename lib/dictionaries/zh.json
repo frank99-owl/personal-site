@@ -40,6 +40,10 @@
     "subtitle": "一些做过的、在做的、想做的。持续更新。",
     "empty": "更多作品陆续放出。"
   },
+  "common": {
+    "demo": "演示",
+    "source": "源码"
+  },
   "footer": {
     "tagline": "用心打磨，2026。",
     "sections": {

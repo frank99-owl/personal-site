@@ -6,8 +6,8 @@ import {
   type Locale,
 } from "@/lib/dictionaries";
 import { featuredProjects } from "@/content/projects";
-import { Hero } from "@/components/Hero";
-import { ProjectGrid } from "@/components/ProjectGrid";
+import { Hero } from "@/components/sections/Hero";
+import { ProjectGrid } from "@/components/sections/ProjectGrid";
 
 export default async function HomePage({
   params,
@@ -40,7 +40,11 @@ export default async function HomePage({
           </Link>
         </div>
 
-        <ProjectGrid projects={projects} lang={lang as Locale} />
+        <ProjectGrid
+          projects={projects}
+          lang={lang as Locale}
+          common={dict.common}
+        />
       </section>
 
       {/* About preview */}

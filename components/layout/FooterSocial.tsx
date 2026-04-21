@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Mail } from "lucide-react";
+import { copyToClipboard } from "@/lib/clipboard";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -30,30 +31,14 @@ const items: readonly Item[] = [
 export function FooterSocial({ copiedLabel }: { copiedLabel: string }) {
   const [copied, setCopied] = useState<string | null>(null);
 
-  const copy = async (label: string) => {
-    // Modern Clipboard API — preferred path
-    try {
-      await navigator.clipboard.writeText(label);
-    } catch {
-      // Legacy fallback for restricted / insecure contexts
-      try {
-        const ta = document.createElement("textarea");
-        ta.value = label;
-        ta.setAttribute("readonly", "");
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      } catch {
-        /* give up silently */
-      }
-    }
-    // Show feedback optimistically — real user clicks almost always succeed
-    setCopied(label);
-    setTimeout(() => setCopied(null), 1500);
-  };
+  const copy = useCallback(
+    async (label: string) => {
+      await copyToClipboard(label);
+      setCopied(label);
+      setTimeout(() => setCopied(null), 1500);
+    },
+    []
+  );
 
   return (
     <ul className="space-y-5">
@@ -77,7 +62,7 @@ export function FooterSocial({ copiedLabel }: { copiedLabel: string }) {
               {/* Feedback overlay — absolute so it never shifts layout */}
               {isCopied && (
                 <span className="absolute inset-0 flex items-center text-orange">
-                  ✓ {copiedLabel}
+                  {copiedLabel}
                 </span>
               )}
             </button>

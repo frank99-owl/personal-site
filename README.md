@@ -1,23 +1,25 @@
-# Frank 个人网站
+# Frank — Personal Site
 
-一个用 Next.js 16 + Tailwind v4 构建的个人站，视觉风格对标 Anthropic。
+A personal website built with Next.js 16 + Tailwind v4, inspired by Anthropic's visual style.
 
-## 本地开发
+_[中文版本 →](README.zh.md)_
+
+## Local Development
 
 ```bash
 npm run dev
 ```
 
-浏览器打开：
-- http://localhost:3000 → 会自动跳到英文首页 `/en`
-- http://localhost:3000/zh → 中文版
+Open your browser:
+- http://localhost:3000 → auto-redirects to English homepage `/en`
+- http://localhost:3000/zh → Chinese version
 
-## 常见修改指南
+## Common Customisation Guide
 
-### 🔧 添加新项目（作品区）
+### Add a New Project (Projects Section)
 
-1. 把项目截图放入 `public/projects/`（比如 `my-app.png`）
-2. 打开 `content/projects.ts`，在 `projects` 数组里加一条：
+1. Drop a screenshot into `public/projects/` (e.g. `my-app.png`)
+2. Open `content/projects.ts` and append a new entry to the `projects` array:
 
 ```ts
 {
@@ -28,67 +30,94 @@ npm run dev
   image: "/projects/my-app.png",
   github: "https://github.com/...",
   demo: "https://...",
-  featured: true,           // 是否在首页精选展示
+  featured: true,           // whether to show on the homepage
   year: 2026,
 }
 ```
 
-保存即生效。首页和 `/projects` 页都会自动更新。
+Save and it takes effect immediately. Both the homepage and `/projects` page update automatically.
 
-### ✏️ 改文案
+### Edit Copy
 
-- 中文：`lib/dictionaries/zh.json`
-- 英文：`lib/dictionaries/en.json`
+- Chinese: `lib/dictionaries/zh.json`
+- English: `lib/dictionaries/en.json`
 
-所有文字都在这两个 JSON 里，改完刷新页面即可。
+All text lives in these two JSON files. Refresh the page after editing.
 
-### 🎨 改主题色
+### Change Theme Colours
 
-打开 `app/globals.css`，在 `@theme` 块里修改 CSS 变量：
-- `--color-cream` 背景
-- `--color-ink` 主文字
-- `--color-orange` 强调色
-- `--color-line` 分割线
+Open `app/globals.css` and edit CSS variables inside the `@theme` block:
+- `--color-cream` — background
+- `--color-ink` — primary text
+- `--color-orange` — accent
+- `--color-line` — dividers
 
-### 📷 换个人头像
+### Swap the Avatar
 
-把一张照片（比如 `avatar.jpg`）放入 `public/`，然后在 `app/[lang]/about/page.tsx` 里把头像占位块替换成：
+Put a photo (e.g. `avatar.jpg`) into `public/`, then replace the avatar placeholder in `app/[lang]/about/page.tsx` with:
 
 ```tsx
 <Image src="/avatar.jpg" alt="Frank" width={112} height={112} className="rounded-full" />
 ```
 
-### 🌍 调整地球上的标记点
+### Adjust Globe Markers
 
-打开 `components/Globe.tsx`，编辑 `markers` 数组。每个标记是 `{ location: [纬度, 经度], size: 大小 }`。
+Open `components/effects/Globe.tsx` and edit the `markers` array. Each marker is `{ location: [latitude, longitude], size: size }`.
 
-## 目录速览
+## Directory Overview
 
 ```
 app/
   [lang]/
-    layout.tsx        # 根布局，管理导航、字体、语言
-    page.tsx          # 首页
-    projects/page.tsx # 作品列表
-    about/page.tsx    # 个人页
-  globals.css         # 主题 + Tailwind
-components/           # UI 组件
-content/projects.ts   # ⭐ 作品数据
+    layout.tsx           # root layout: nav, fonts, i18n, SEO metadata
+    page.tsx             # homepage
+    projects/page.tsx    # projects list
+    about/page.tsx       # about page
+    loading.tsx          # page loading skeleton
+    not-found.tsx        # language-scoped 404
+  globals.css            # theme + Tailwind
+  manifest.ts            # PWA manifest
+  robots.ts              # search-engine crawler rules
+  sitemap.ts             # site map
+  error.tsx              # global error boundary
+  not-found.tsx          # global 404
+components/
+  layout/                # layout components
+    Navbar.tsx           # top nav (with active-page highlight)
+    Footer.tsx           # footer
+    FooterNav.tsx        # footer navigation
+    FooterSocial.tsx     # social links (click to copy)
+  sections/              # page sections
+    Hero.tsx             # homepage hero
+    ProjectGrid.tsx      # project grid
+    ProjectCard.tsx      # individual project card
+  effects/               # visual effects
+    Globe.tsx            # WebGL globe
+  ui/                    # basic UI
+    LanguageToggle.tsx   # language switcher
+content/
+  projects.ts            # project data source
 lib/
-  dictionaries/       # ⭐ 中英文案
-  dictionaries.ts     # 加载器
-public/               # 静态资源
+  constants.ts           # site constants (URL, SEO, etc.)
+  clipboard.ts           # clipboard utility
+  utils.ts               # general utilities (cn, etc.)
+  locale.ts              # locale types and helpers
+  dictionaries.ts        # dictionary loader
+  dictionaries/
+    en.json              # English copy
+    zh.json              # Chinese copy
+public/                  # static assets
 ```
 
-## 技术栈
+## Tech Stack
 
 - Next.js 16 (App Router) + React 19
 - TypeScript
 - Tailwind CSS v4
-- cobe — WebGL 地球
-- Framer Motion — 动画
-- lucide-react — 图标
+- cobe — WebGL globe
+- Framer Motion — animations
+- lucide-react — icons
 
 ---
 
-© 2026 Frank. All rights reserved. 本仓库为个人作品集展示，未授权复用。
+© 2026 Frank. All rights reserved. This repository is a personal portfolio showcase; unauthorised reuse is prohibited.
