@@ -55,8 +55,8 @@ export function Globe({ size = 600 }: { size?: number }) {
       devicePixelRatio: 2,
       width: width * 2,
       height: width * 2,
-      phi: 0,
-      theta: 0.28,
+      phi: 2.3,
+      theta: 0,
       dark: 1,
       diffuse: 1.2,
       mapSamples: 16000,
@@ -72,7 +72,7 @@ export function Globe({ size = 600 }: { size?: number }) {
     });
 
     // Drive rotation + resize ourselves (cobe v2 has no onRender callback).
-    let phi = 0;
+    let phi = 2.3;
     let rafId = 0;
     const tick = () => {
       if (pointerInteracting.current === null) phi += 0.004;

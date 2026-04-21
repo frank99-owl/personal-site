@@ -25,6 +25,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "go-daily",
+    title: {
+      en: "Go Daily",
+      zh: "Go 每日一题",
+    },
+    description: {
+      en: "One Go (Weiqi) puzzle a day with a Socratic AI coach in 4 languages. Canvas board, streak tracking, and share cards.",
+      zh: "每天一道围棋题，AI 苏格拉底式教练支持中/英/日/韩四种语言。Canvas 棋盘、连胜记录、分享卡片。",
+    },
+    tags: ["Next.js", "TypeScript", "AI", "Canvas", "Vibe coding"],
+    github: "https://github.com/frank99-owl/go-daily",
+    demo: "https://go-daily.vercel.app",
+    featured: true,
+    year: 2026,
+  },
+  {
     slug: "shadow-mario",
     title: {
       en: "Shadow Mario",
@@ -51,7 +67,7 @@ export const projects: Project[] = [
       zh: "占位卡片。用真实内容替换。",
     },
     tags: ["TypeScript", "React"],
-    featured: true,
+    featured: false,
     year: 2026,
   },
   {
@@ -65,7 +81,7 @@ export const projects: Project[] = [
       zh: "另一个占位卡片——这里写项目的一句话介绍。",
     },
     tags: ["AI", "Python"],
-    featured: true,
+    featured: false,
     year: 2025,
   },
   {
