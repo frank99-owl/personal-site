@@ -5,7 +5,7 @@
 
 export const SITE = {
   name: "Frank",
-  url: "https://frank-personal-site.vercel.app",
+  url: "https://frank-ai.cc",
   email: "frank_code@126.com",
   github: "https://github.com/frank99-owl",
   year: 2026,
