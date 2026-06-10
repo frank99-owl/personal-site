@@ -15,6 +15,6 @@ export const SEO = {
   title: `${SITE.name} — Personal Site`,
   description:
     "Personal website of Frank: projects, writings, and ideas. Built with Next.js + Tailwind.",
-  ogImage: "/avatar.jpg",
+  ogImage: "/og.png",
   twitterHandle: "@frank_owl",
 } as const;

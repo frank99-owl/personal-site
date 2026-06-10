@@ -67,7 +67,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/avatar.jpg",
+          url: "/og.png",
           width: 1200,
           height: 630,
           alt: dict.meta.title,
@@ -78,7 +78,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      images: ["/avatar.jpg"],
+      images: ["/og.png"],
     },
     robots: {
       index: true,
