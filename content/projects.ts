@@ -36,7 +36,23 @@ export const projects: Project[] = [
     },
     tags: ["Next.js", "TypeScript", "AI", "Canvas", "Vibe coding"],
     github: "https://github.com/frank99-owl/go-daily",
-    demo: "https://go-daily.vercel.app",
+    demo: "https://go-daily.app",
+    featured: true,
+    year: 2026,
+  },
+  {
+    slug: "citydle",
+    title: {
+      en: "Citydle",
+      zh: "每日街图",
+    },
+    description: {
+      en: "A daily map-reading puzzle: one city's real road network drawn as a parchment-style map, six progressive clues to name the city. Wordle-style emoji sharing and streaks.",
+      zh: "每天一座城市：把真实路网渲染成羊皮纸风格的地图剪影，6 条渐进线索猜出这是哪座城市。Wordle 式表情分享和连胜记录。",
+    },
+    tags: ["JavaScript", "OpenStreetMap", "Game", "Vibe coding"],
+    github: "https://github.com/frank99-owl/citydle",
+    demo: "https://financial-street-cartographer.vercel.app",
     featured: true,
     year: 2026,
   },
@@ -55,48 +71,6 @@ export const projects: Project[] = [
     demo: "https://frank-owl.itch.io/shadowmario",
     featured: true,
     year: 2026,
-  },
-  {
-    slug: "placeholder-one",
-    title: {
-      en: "Project One",
-      zh: "项目一",
-    },
-    description: {
-      en: "A placeholder card. Replace with real content.",
-      zh: "占位卡片。用真实内容替换。",
-    },
-    tags: ["TypeScript", "React"],
-    featured: false,
-    year: 2026,
-  },
-  {
-    slug: "placeholder-two",
-    title: {
-      en: "Project Two",
-      zh: "项目二",
-    },
-    description: {
-      en: "Another placeholder — this is where a one-liner about a project goes.",
-      zh: "另一个占位卡片——这里写项目的一句话介绍。",
-    },
-    tags: ["AI", "Python"],
-    featured: false,
-    year: 2025,
-  },
-  {
-    slug: "placeholder-three",
-    title: {
-      en: "Project Three",
-      zh: "项目三",
-    },
-    description: {
-      en: "Small tool, big idea. Describe what you built and why.",
-      zh: "小工具，大想法。写一下做了什么、为什么做。",
-    },
-    tags: ["Next.js", "Vercel"],
-    featured: false,
-    year: 2025,
   },
 ];
 
