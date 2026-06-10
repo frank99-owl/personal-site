@@ -54,10 +54,10 @@ Open `app/globals.css` and edit CSS variables inside the `@theme` block:
 
 ### Swap the Avatar
 
-Put a photo (e.g. `avatar.jpg`) into `public/`, then replace the avatar placeholder in `app/[lang]/about/page.tsx` with:
+Put a photo (e.g. `avatar.jpg`) into `public/`. The About page already reads `/avatar.jpg` via `fill` mode — just replace the file and it works. If you need a different path, update `app/[lang]/about/page.tsx`:
 
 ```tsx
-<Image src="/avatar.jpg" alt="Frank" width={112} height={112} className="rounded-full" />
+<Image src="/your-photo.jpg" alt="Frank" fill sizes="128px" className="object-cover" priority />
 ```
 
 ### Adjust Globe Markers
@@ -97,6 +97,7 @@ components/
     LanguageToggle.tsx   # language switcher
 content/
   projects.ts            # project data source
+  models.ts              # AI model vendor & model list (About page)
 lib/
   constants.ts           # site constants (URL, SEO, etc.)
   clipboard.ts           # clipboard utility
@@ -106,7 +107,11 @@ lib/
   dictionaries/
     en.json              # English copy
     zh.json              # Chinese copy
-public/                  # static assets
+public/
+  avatar.jpg             # profile photo (used as favicon + about page)
+  og.png                 # Open Graph preview image
+  logos/                 # AI vendor SVG logos (About page)
+  projects/              # project screenshots
 ```
 
 ## Tech Stack
@@ -117,6 +122,7 @@ public/                  # static assets
 - cobe — WebGL globe
 - Framer Motion — animations
 - lucide-react — icons
+- clsx + tailwind-merge — className utility
 
 ---
 

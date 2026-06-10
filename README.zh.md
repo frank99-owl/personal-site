@@ -52,10 +52,10 @@ npm run dev
 
 ### 换个人头像
 
-把一张照片（比如 `avatar.jpg`）放入 `public/`，然后在 `app/[lang]/about/page.tsx` 里把头像占位块替换成：
+把一张照片（比如 `avatar.jpg`）放入 `public/`。关于页已经用 `fill` 模式读取 `/avatar.jpg`——换文件就行。如果路径不同，修改 `app/[lang]/about/page.tsx`：
 
 ```tsx
-<Image src="/avatar.jpg" alt="Frank" width={112} height={112} className="rounded-full" />
+<Image src="/your-photo.jpg" alt="Frank" fill sizes="128px" className="object-cover" priority />
 ```
 
 ### 调整地球上的标记点
@@ -95,6 +95,7 @@ components/
     LanguageToggle.tsx   # 语言切换
 content/
   projects.ts            # 作品数据源
+  models.ts              # AI 模型厂商与模型列表（关于页）
 lib/
   constants.ts           # 站点常量（URL、SEO 等）
   clipboard.ts           # 剪贴板工具
@@ -104,7 +105,11 @@ lib/
   dictionaries/
     en.json              # 英文文案
     zh.json              # 中文文案
-public/                  # 静态资源
+public/
+  avatar.jpg             # 个人头像（同时用作 favicon + 关于页）
+  og.png                 # Open Graph 预览图
+  logos/                 # AI 厂商 SVG logo（关于页）
+  projects/              # 项目截图
 ```
 
 ## 技术栈
@@ -115,6 +120,7 @@ public/                  # 静态资源
 - cobe — WebGL 地球
 - Framer Motion — 动画
 - lucide-react — 图标
+- clsx + tailwind-merge — className 工具
 
 ---
 

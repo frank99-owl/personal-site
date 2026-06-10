@@ -85,7 +85,7 @@ GitHub 会给你一个页面，上面有命令。我们用下面的流程：
 在项目目录下执行：
 
 ```bash
-cd /Users/frank/Desktop/Web
+cd /Users/frank/Web
 git init
 git add .
 git commit -m "initial commit"
@@ -127,7 +127,7 @@ Vercel 会监听你的 GitHub 仓库，每次 push 自动重新部署。
 改完代码后：
 
 ```bash
-cd /Users/frank/Desktop/Web
+cd /Users/frank/Web
 git add .
 git commit -m "描述你改了啥"
 git push

@@ -46,6 +46,13 @@
 - `lib/dictionaries.ts` —— 服务端字典加载器（`server-only`）
 - `components/ui/LanguageToggle.tsx` —— 客户端语言切换，通过 pathname 替换实现
 
+### AI 模型展示（About 页）
+
+About 页底部以树形结构展示 Frank 使用过的 AI 模型，数据源为 `content/models.ts`：
+- `ModelVendor` 类型定义厂商 slug、名称（双语）、logo 路径、模型列表
+- logo 文件放在 `public/logos/`（SVG 格式）
+- 添加新模型：在对应厂商的 `models` 数组追加；添加新厂商：放 SVG 到 `public/logos/`，在 `modelVendors` 数组追加
+
 ### SEO
 
 - `layout.tsx` 生成完整 metadata（title、description、OG、Twitter card、alternates）
