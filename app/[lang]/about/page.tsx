@@ -5,6 +5,7 @@ import {
   hasLocale,
   type Locale,
 } from "@/lib/dictionaries";
+import { modelVendors } from "@/content/models";
 
 export default async function AboutPage({
   params,
@@ -60,25 +61,41 @@ export default async function AboutPage({
         </ul>
       </div>
 
-      {/* Timeline container */}
+      {/* AI models I've worked with — tree view, data in content/models.ts */}
       <div>
         <h2 className="font-serif text-2xl text-ink mb-6">
-          {dict.about.experienceTitle}
+          {dict.about.modelsTitle}
         </h2>
-        <ol className="relative border-l border-line pl-6 space-y-8">
-          {/* Placeholder items — Frank can fill these in */}
-          <li>
-            <div className="absolute -left-1.5 w-3 h-3 rounded-full bg-orange" />
-            <p className="text-xs uppercase tracking-wider text-muted mb-1">2026</p>
-            <p className="text-ink-soft">Placeholder milestone.</p>
-          </li>
-          <li>
-            <div className="absolute -left-1.5 mt-10 w-3 h-3 rounded-full bg-line" />
-            <p className="text-xs uppercase tracking-wider text-muted mb-1">2025</p>
-            <p className="text-ink-soft">Placeholder milestone.</p>
-          </li>
-        </ol>
+        <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
+          {modelVendors.map((vendor) => (
+            <div key={vendor.slug}>
+              <div className="flex items-center gap-2.5">
+                <Image
+                  src={vendor.logo}
+                  alt={vendor.name[lang as Locale]}
+                  width={22}
+                  height={22}
+                  unoptimized
+                />
+                <span className="font-medium text-ink">
+                  {vendor.name[lang as Locale]}
+                </span>
+              </div>
+              <ul className="mt-1 ml-[11px]">
+                {vendor.models.map((model) => (
+                  <li
+                    key={model}
+                    className="relative py-1 pl-5 text-sm text-ink-soft before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-line last:before:h-1/2 after:absolute after:left-0 after:top-1/2 after:h-px after:w-3.5 after:bg-line"
+                  >
+                    {model}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
+
     </section>
   );
 }
