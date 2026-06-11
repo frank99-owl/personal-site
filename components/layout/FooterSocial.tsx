@@ -55,7 +55,7 @@ export function FooterSocial({ copiedLabel }: { copiedLabel: string }) {
               type="button"
               onClick={() => copy(label)}
               aria-label={`${copiedLabel} ${label}`}
-              className="relative text-sm text-ink-soft hover:text-orange transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100 cursor-pointer text-left"
+              className="relative text-sm text-ink-soft hover:text-orange transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100 cursor-pointer text-left"
             >
               {/* Reserve layout width with the full label (invisible when showing feedback) */}
               <span className={isCopied ? "invisible" : ""}>{label}</span>
