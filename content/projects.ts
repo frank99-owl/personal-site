@@ -31,8 +31,8 @@ export const projects: Project[] = [
       zh: "Go 每日一题",
     },
     description: {
-      en: "One Go (Weiqi) puzzle a day with a Socratic AI coach in 4 languages. Canvas board, streak tracking, and share cards.",
-      zh: "每天一道围棋题，AI 苏格拉底式教练支持中/英/日/韩四种语言。Canvas 棋盘、连胜记录、分享卡片。",
+      en: "A daily Go (Weiqi) puzzle with an AI coach that guides you through each move with layered hints — it walks you through the reasoning instead of just handing over the answer. Four languages, a Canvas board, streak tracking, and share cards.",
+      zh: "每天一道围棋题，AI 教练用层层递进的提示陪你想清楚每一步——讲思路，而不是直接抛答案。支持中/英/日/韩四语，Canvas 棋盘、连胜打卡、成绩分享卡片。",
     },
     tags: ["Next.js", "TypeScript", "AI", "Canvas", "Vibe coding"],
     image: "/projects/go-daily.jpg",
