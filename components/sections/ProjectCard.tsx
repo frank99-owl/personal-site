@@ -29,14 +29,15 @@ export function ProjectCard({ project, lang, common, headingLevel = "h3" }: Prop
   const Heading = headingLevel;
   const title = project.title[lang];
   const description = project.description[lang];
+  const image = typeof project.image === "string" ? project.image : project.image?.[lang];
 
   return (
     <article className="group relative flex flex-col rounded-2xl border border-line bg-cream-dim/40 hover:bg-cream-dim hover:border-orange/40 transition-all duration-300 overflow-hidden">
       {/* Image or gradient placeholder */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-cream-dim via-cream to-line/50">
-        {project.image ? (
+        {image ? (
           <Image
-            src={project.image}
+            src={image}
             alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
