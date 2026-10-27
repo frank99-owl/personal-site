@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import type { Locale, Dictionary } from "@/lib/locale";
 import { Globe } from "../effects/Globe";
@@ -11,52 +8,28 @@ type Props = {
   dict: Dictionary["hero"];
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
-};
-
+// Entrance animation is plain CSS (globals.css) rather than JS, so the
+// headline paints with the HTML instead of waiting for hydration.
 export function Hero({ lang, dict }: Props) {
   const base = `/${lang}`;
 
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 pt-16 pb-24 sm:pt-24 sm:pb-32 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          transition={{ staggerChildren: 0.12, delayChildren: 0.05 }}
-          className="space-y-6"
-        >
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-base sm:text-lg uppercase tracking-[0.24em] text-orange font-medium"
-          >
+        <div className="space-y-6">
+          <p className="hero-fade-up [animation-duration:0.6s] [animation-delay:0.05s] text-base sm:text-lg uppercase tracking-[0.24em] text-orange-ink font-medium">
             {dict.eyebrow}
-          </motion.p>
+          </p>
 
-          <motion.h1
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="font-serif text-[clamp(2.25rem,5vw,4rem)] leading-[1.08] tracking-tight text-ink"
-          >
+          <h1 className="hero-fade-up [animation-delay:0.17s] font-serif text-[clamp(2.25rem,5vw,4rem)] leading-[1.08] tracking-tight text-ink">
             {dict.title}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-lg sm:text-xl text-ink-soft leading-relaxed max-w-xl"
-          >
+          <p className="hero-fade-up [animation-delay:0.29s] text-lg sm:text-xl text-ink-soft leading-relaxed max-w-xl">
             {dict.subtitle}
-          </motion.p>
+          </p>
 
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="flex flex-wrap gap-3 pt-4"
-          >
+          <div className="hero-fade-up [animation-delay:0.41s] flex flex-wrap gap-3 pt-4">
             <Link
               href={`${base}/projects`}
               className="group inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-3 text-sm font-medium hover:bg-ink-soft transition-colors"
@@ -69,20 +42,15 @@ export function Hero({ lang, dict }: Props) {
             </Link>
             <Link
               href={`${base}/about`}
-              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-ink hover:border-orange hover:text-orange transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-ink hover:border-orange hover:text-orange-ink transition-colors"
             >
               {dict.ctaSecondary}
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Globe */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, ease: "easeOut", delay: 0.1 }}
-          className="relative"
-        >
+        <div className="hero-globe-in relative">
           {/* Soft orange halo behind globe */}
           <div
             aria-hidden
@@ -93,7 +61,7 @@ export function Hero({ lang, dict }: Props) {
             }}
           />
           <Globe size={560} />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

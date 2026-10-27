@@ -7,6 +7,8 @@ type Props = {
   project: Project;
   lang: Locale;
   common: Dictionary["common"];
+  // h3 under a section h2 (home); h2 directly under the page h1 (projects).
+  headingLevel?: "h2" | "h3";
 };
 
 function GitHubGlyph({ size = 14 }: { size?: number }) {
@@ -23,7 +25,8 @@ function GitHubGlyph({ size = 14 }: { size?: number }) {
   );
 }
 
-export function ProjectCard({ project, lang, common }: Props) {
+export function ProjectCard({ project, lang, common, headingLevel = "h3" }: Props) {
+  const Heading = headingLevel;
   const title = project.title[lang];
   const description = project.description[lang];
 
@@ -50,7 +53,7 @@ export function ProjectCard({ project, lang, common }: Props) {
 
       <div className="flex-1 flex flex-col p-6 gap-3">
         <div className="flex items-baseline justify-between gap-4">
-          <h3 className="font-serif text-xl text-ink">{title}</h3>
+          <Heading className="font-serif text-xl text-ink">{title}</Heading>
           <span className="text-xs text-muted font-mono">{project.year}</span>
         </div>
 
@@ -78,7 +81,7 @@ export function ProjectCard({ project, lang, common }: Props) {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange-ink transition-colors"
               >
                 <ExternalLink size={13} />
                 {common.demo}
@@ -89,7 +92,7 @@ export function ProjectCard({ project, lang, common }: Props) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-orange-ink transition-colors"
               >
                 <GitHubGlyph size={13} />
                 {common.source}

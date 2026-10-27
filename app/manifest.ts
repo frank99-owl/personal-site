@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: SITE.name,
     short_name: SITE.name,
     description:
-      "Personal website of Frank: projects, writings, and ideas.",
+      "Personal website of Frank: projects and ideas.",
     start_url: "/",
     display: "standalone",
     background_color: "#faf9f0",

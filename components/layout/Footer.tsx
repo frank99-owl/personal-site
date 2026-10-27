@@ -26,16 +26,16 @@ export function Footer({ lang, dict, navDict }: Props) {
         </div>
 
         <div className="space-y-3">
-          <h4 className="text-xs uppercase tracking-[0.18em] text-muted">
+          <h2 className="text-xs uppercase tracking-[0.18em] text-muted">
             {dict.sections.navigate}
-          </h4>
+          </h2>
           <FooterNav items={nav} />
         </div>
 
         <div className="space-y-3">
-          <h4 className="text-xs uppercase tracking-[0.18em] text-muted">
+          <h2 className="text-xs uppercase tracking-[0.18em] text-muted">
             {dict.sections.connect}
-          </h4>
+          </h2>
           <FooterSocial copiedLabel={dict.copied} />
         </div>
       </div>

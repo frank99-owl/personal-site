@@ -28,7 +28,7 @@ export function FooterNav({ items }: { items: readonly NavItem[] }) {
           <Link
             href={n.href}
             onClick={(e) => handleClick(e, n.href)}
-            className="text-sm text-ink-soft hover:text-orange transition-colors"
+            className="text-sm text-ink-soft hover:text-orange-ink transition-colors"
           >
             {n.label}
           </Link>

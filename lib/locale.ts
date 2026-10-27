@@ -11,6 +11,26 @@ export const defaultLocale: Locale = "en";
 export const hasLocale = (locale: string): locale is Locale =>
   (locales as readonly string[]).includes(locale);
 
+// Pick a locale from an Accept-Language header. Any zh-* tag that ranks
+// above every en-* tag wins; everything else falls back to the default.
+export const negotiateLocale = (acceptLanguage: string | null): Locale => {
+  if (!acceptLanguage) return defaultLocale;
+  const ranked = acceptLanguage
+    .split(",")
+    .map((part) => {
+      const [tag, ...params] = part.trim().toLowerCase().split(";");
+      const q = params.find((p) => p.trim().startsWith("q="));
+      return { tag, q: q ? Number(q.trim().slice(2)) : 1 };
+    })
+    .filter(({ q }) => q > 0)
+    .sort((a, b) => b.q - a.q);
+  for (const { tag } of ranked) {
+    const primary = tag.split("-")[0];
+    if (hasLocale(primary)) return primary;
+  }
+  return defaultLocale;
+};
+
 export const otherLocale = (locale: Locale): Locale =>
   locale === "en" ? "zh" : "en";
 

@@ -31,10 +31,10 @@ export const projects: Project[] = [
       zh: "Go 每日一题",
     },
     description: {
-      en: "A daily Go (Weiqi) puzzle with an AI coach that guides you through each move with layered hints — it walks you through the reasoning instead of just handing over the answer. Four languages, a Canvas board, streak tracking, and share cards.",
-      zh: "每天一道围棋题，AI 教练用层层递进的提示陪你想清楚每一步——讲思路，而不是直接抛答案。支持中/英/日/韩四语，Canvas 棋盘、连胜打卡、成绩分享卡片。",
+      en: "A daily Go (Weiqi) puzzle with an AI coach that guides you through each move with layered hints — it walks you through the reasoning instead of just handing over the answer. Five original coach characters, each with their own voice, plus an eval harness that grades how the coach actually behaves. Four languages, a Canvas board, streak tracking, share cards, and a Mac desktop app.",
+      zh: "每天一道围棋题，AI 教练用层层递进的提示陪你想清楚每一步——讲思路，而不是直接抛答案。五位原创教练角色各有各的说话风格，还配了一套评测，专门检验教练实际怎么回答。支持中/英/日/韩四语，Canvas 棋盘、连胜打卡、成绩分享卡片，另有 Mac 桌面版。",
     },
-    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI", "Canvas", "Vibe coding"],
+    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI", "Evals", "Tauri", "Vibe coding"],
     image: "/projects/go-daily.jpg",
     github: "https://github.com/frank99-owl/go-daily",
     demo: "https://go-daily.app",

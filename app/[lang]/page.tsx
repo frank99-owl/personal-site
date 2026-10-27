@@ -25,7 +25,7 @@ export default async function HomePage({
       <section className="mx-auto max-w-6xl px-6 py-20 border-t border-line/70">
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-orange font-medium mb-3">
+            <p className="text-xs uppercase tracking-[0.22em] text-orange-ink font-medium mb-3">
               {dict.featured.eyebrow}
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-ink">
@@ -34,7 +34,7 @@ export default async function HomePage({
           </div>
           <Link
             href={`/${lang}/projects`}
-            className="text-sm text-ink-soft hover:text-orange transition-colors"
+            className="text-sm text-ink-soft hover:text-orange-ink transition-colors"
           >
             {dict.featured.viewAll}
           </Link>
@@ -50,7 +50,7 @@ export default async function HomePage({
       {/* About preview */}
       <section className="mx-auto max-w-6xl px-6 py-20 border-t border-line/70">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.22em] text-orange font-medium mb-3">
+          <p className="text-xs uppercase tracking-[0.22em] text-orange-ink font-medium mb-3">
             {dict.aboutPreview.eyebrow}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-ink mb-6">
@@ -61,7 +61,7 @@ export default async function HomePage({
           </p>
           <Link
             href={`/${lang}/about`}
-            className="inline-flex items-center gap-2 text-sm font-medium text-orange hover:text-orange-dim transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-orange-ink hover:text-ink transition-colors"
           >
             {dict.aboutPreview.readMore}
           </Link>

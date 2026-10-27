@@ -1,25 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/en",
-        permanent: false,
-      },
-    ];
-  },
+  // `/` is negotiated by Accept-Language in proxy.ts.
 
+  // Local images only — no remotePatterns, so /_next/image can't be used
+  // as an open proxy for arbitrary remote images.
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 86_400,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
   },
 
   async headers() {

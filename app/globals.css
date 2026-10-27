@@ -8,7 +8,9 @@
   --color-ink-soft: #2a2a2b;
   --color-orange: #d97757;
   --color-orange-dim: #c26a4a;
-  --color-muted: #87867f;
+  /* Orange for text: #d97757 is only 2.95:1 on cream, under WCAG AA's 4.5:1 */
+  --color-orange-ink: #ad5536;
+  --color-muted: #6f6e68;
   --color-line: #e6e4d8;
 
   /* Semantic mapping */
@@ -17,8 +19,10 @@
   --color-accent: var(--color-orange);
 
   /* Fonts */
-  --font-sans: var(--font-inter), var(--font-noto-sc), ui-sans-serif, system-ui,
-    sans-serif;
+  /* Chinese falls through to the system CJK font (PingFang on Apple, Noto Sans
+     CJK on Android, YaHei on Windows) instead of ~700 KB of webfont chunks. */
+  --font-sans: var(--font-inter), "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
@@ -40,6 +44,40 @@ body {
 ::selection {
   background: var(--color-orange);
   color: var(--color-cream);
+}
+
+/* Hero entrance (was framer-motion). `both` keeps the hidden state during the
+   delay; no JS is involved, so the headline paints with the HTML. */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes hero-globe-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* In the components layer so [animation-delay:…] utilities still win. */
+@layer components {
+  .hero-fade-up {
+    animation: hero-fade-up 0.7s ease-out both;
+  }
+
+  .hero-globe-in {
+    animation: hero-globe-in 1.4s ease-out 0.1s both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fade-up,
+    .hero-globe-in {
+      animation: none;
+    }
+  }
 }
 
 /* Subtle grain texture overlay (optional, used by Hero) */

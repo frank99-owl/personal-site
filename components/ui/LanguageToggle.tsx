@@ -19,7 +19,7 @@ export function LanguageToggle({ lang, label }: Props) {
   return (
     <Link
       href={nextPath}
-      aria-label={`Switch to ${target}`}
+      hrefLang={target}
       className="inline-flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-medium border border-line text-ink hover:bg-line/60 transition-colors"
     >
       {label}

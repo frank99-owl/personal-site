@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_SC, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 
@@ -16,13 +16,6 @@ import { SITE } from "@/lib/constants";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const notoSC = Noto_Sans_SC({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-noto-sc",
   display: "swap",
 });
 
@@ -85,8 +78,8 @@ export async function generateMetadata({
       follow: true,
     },
     icons: {
-      icon: "/avatar.jpg",
-      apple: "/avatar.jpg",
+      icon: { url: "/icon.jpg", sizes: "64x64", type: "image/jpeg" },
+      apple: { url: "/apple-icon.jpg", sizes: "180x180", type: "image/jpeg" },
     },
   };
 }
@@ -102,7 +95,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${inter.variable} ${notoSC.variable} ${playfair.variable} antialiased`}
+      className={`${inter.variable} ${playfair.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-cream text-ink">
         <Navbar lang={lang as Locale} dict={dict.nav} />

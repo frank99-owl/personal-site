@@ -29,6 +29,7 @@ export const modelVendors: ModelVendor[] = [
       "Claude Opus 4.7",
       "Claude Opus 4.8",
       "Claude Fable 5",
+      "Claude Opus 5.5",
     ],
   },
   {

@@ -17,7 +17,7 @@ export default async function ProjectsPage({
   return (
     <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
       <header className="max-w-2xl mb-14">
-        <p className="text-xs uppercase tracking-[0.22em] text-orange font-medium mb-3">
+        <p className="text-xs uppercase tracking-[0.22em] text-orange-ink font-medium mb-3">
           {dict.nav.projects}
         </p>
         <h1 className="font-serif text-4xl sm:text-5xl tracking-tight text-ink mb-5">
@@ -33,6 +33,7 @@ export default async function ProjectsPage({
         lang={lang as Locale}
         common={dict.common}
         emptyLabel={dict.projects.empty}
+        headingLevel="h2"
       />
     </section>
   );

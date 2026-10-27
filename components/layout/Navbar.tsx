@@ -30,7 +30,7 @@ export function Navbar({ lang, dict }: Props) {
       <nav className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link
           href={base}
-          className="font-serif text-xl tracking-tight text-ink hover:text-orange transition-colors"
+          className="font-serif text-xl tracking-tight text-ink hover:text-orange-ink transition-colors"
         >
           Frank
         </Link>
@@ -47,7 +47,7 @@ export function Navbar({ lang, dict }: Props) {
                     className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
                       active
                         ? "text-ink font-medium bg-line/50"
-                        : "text-ink-soft hover:text-orange hover:bg-line/40"
+                        : "text-ink-soft hover:text-orange-ink hover:bg-line/40"
                     }`}
                   >
                     {link.label}

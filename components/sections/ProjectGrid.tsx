@@ -7,9 +7,16 @@ type Props = {
   lang: Locale;
   common: Dictionary["common"];
   emptyLabel?: string;
+  headingLevel?: "h2" | "h3";
 };
 
-export function ProjectGrid({ projects, lang, common, emptyLabel }: Props) {
+export function ProjectGrid({
+  projects,
+  lang,
+  common,
+  emptyLabel,
+  headingLevel,
+}: Props) {
   if (projects.length === 0) {
     return (
       <p className="text-center text-muted py-16">
@@ -26,6 +33,7 @@ export function ProjectGrid({ projects, lang, common, emptyLabel }: Props) {
           project={project}
           lang={lang}
           common={common}
+          headingLevel={headingLevel}
         />
       ))}
     </div>

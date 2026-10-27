@@ -18,7 +18,7 @@ export default async function AboutPage({
     <section className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
       {/* Header */}
       <header className="mb-16">
-        <p className="text-xs uppercase tracking-[0.22em] text-orange font-medium mb-3">
+        <p className="text-xs uppercase tracking-[0.22em] text-orange-ink font-medium mb-3">
           {dict.about.eyebrow}
         </p>
         <h1 className="font-serif text-4xl sm:text-5xl tracking-tight text-ink mb-8">
