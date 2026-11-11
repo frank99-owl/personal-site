@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   getDictionary,
@@ -6,6 +7,26 @@ import {
   type Locale,
 } from "@/lib/dictionaries";
 import { modelVendors } from "@/content/models";
+import { SITE } from "@/lib/constants";
+import { pageMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]/about">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang as Locale);
+
+  return {
+    title: dict.nav.about,
+    ...pageMetadata({
+      lang: lang as Locale,
+      path: "/about",
+      title: `${dict.nav.about} — ${SITE.name}`,
+      description: dict.about.intro,
+    }),
+  };
+}
 
 export default async function AboutPage({
   params,

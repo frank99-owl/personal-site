@@ -14,8 +14,10 @@ export function Navbar({ lang, dict }: Props) {
   const pathname = usePathname();
   const base = `/${lang}`;
 
+  // On phones the wordmark already links home, so the Home item is dropped
+  // there to leave room for the other two and the language toggle.
   const links = [
-    { href: base, label: dict.home },
+    { href: base, label: dict.home, desktopOnly: true },
     { href: `${base}/projects`, label: dict.projects },
     { href: `${base}/about`, label: dict.about },
   ];
@@ -36,15 +38,15 @@ export function Navbar({ lang, dict }: Props) {
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <ul className="hidden sm:flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 sm:gap-1">
             {links.map((link) => {
               const active = isActive(link.href);
               return (
-                <li key={link.href}>
+                <li key={link.href} className={link.desktopOnly ? "hidden sm:block" : undefined}>
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
+                    className={`px-2.5 sm:px-3 py-1.5 text-sm rounded-full transition-colors ${
                       active
                         ? "text-ink font-medium bg-line/50"
                         : "text-ink-soft hover:text-orange-ink hover:bg-line/40"
@@ -56,7 +58,7 @@ export function Navbar({ lang, dict }: Props) {
               );
             })}
           </ul>
-          <div className="ml-2 sm:ml-3">
+          <div className="ml-1.5 sm:ml-3">
             <LanguageToggle lang={lang} label={dict.toggleLanguage} />
           </div>
         </div>

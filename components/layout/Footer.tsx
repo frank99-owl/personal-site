@@ -36,7 +36,7 @@ export function Footer({ lang, dict, navDict }: Props) {
           <h2 className="text-xs uppercase tracking-[0.18em] text-muted">
             {dict.sections.connect}
           </h2>
-          <FooterSocial copiedLabel={dict.copied} />
+          <FooterSocial copyLabel={dict.copy} copiedLabel={dict.copied} />
         </div>
       </div>
       <div className="border-t border-line/60">

@@ -28,7 +28,13 @@ const items: readonly Item[] = [
   { label: "github.com/frank99-owl", Icon: GitHubIcon },
 ];
 
-export function FooterSocial({ copiedLabel }: { copiedLabel: string }) {
+export function FooterSocial({
+  copyLabel,
+  copiedLabel,
+}: {
+  copyLabel: string;
+  copiedLabel: string;
+}) {
   const [copied, setCopied] = useState<string | null>(null);
 
   const copy = useCallback(
@@ -54,8 +60,8 @@ export function FooterSocial({ copiedLabel }: { copiedLabel: string }) {
             <button
               type="button"
               onClick={() => copy(label)}
-              aria-label={`${copiedLabel} ${label}`}
-              className="relative text-sm text-ink-soft hover:text-orange-ink transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100 cursor-pointer text-left"
+              aria-label={`${copyLabel} ${label}`}
+              className="relative text-sm text-ink-soft hover:text-orange-ink transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100 cursor-pointer text-left"
             >
               {/* Reserve layout width with the full label (invisible when showing feedback) */}
               <span className={isCopied ? "invisible" : ""}>{label}</span>

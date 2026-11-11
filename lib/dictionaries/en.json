@@ -50,6 +50,7 @@
       "connect": "Connect",
       "navigate": "Navigate"
     },
+    "copy": "Copy",
     "copied": "Copied"
   }
 }
